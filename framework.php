@@ -6,7 +6,6 @@
         public function __construct($id, $password, $paymenturl) {
             $this->id = $id;
             $this->pass = $password;
-            $this->paymenturl = $paymenturl;
         }
         public function PayUrl($keyresponse) {
             if ($keyresponse["success"]) { // pokud bylo vytvoření klíče úspěšné
@@ -24,16 +23,19 @@
             }
             return $payurl;
         }
+        public function pay($name, $amount) {
+            // WAIT FOR SSL
+        }
     }
     class Key {
-        public static function create($app, $name, $amount, $description) {
+        public static function create($app, $name, $amount, $description, $redirect) {
             $name = str_replace(" ", "%20", $name);
             $description = str_replace(" ", "%20", $description);
             $data = array(  "key"=>$app->key,
                             "name"=>$name,
                             "amount"=>$amount,
                             "description"=>$description,
-                            "url"=>$app->paymenturl
+                            "url"=>$url
                     );
             $url = "http://standacoin.esy.es/API/createkey";
             $ch = curl_init($url);
