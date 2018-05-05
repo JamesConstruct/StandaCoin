@@ -58,8 +58,8 @@
     /*  example usage:
             require("framework.php");
 
-            $app = new App("a65ga65fh5rf5ga", "MyPass", "http://example.org/done/?type=StandaCoin&"); // vytvoření aplikace
-            $key = Key::create($app, "Cool platba", 0.256, "Tohle je příkladová platba ;)"); // vytvoření platebního klíče
+            $app = new App("a65ga65fh5rf5ga", "MyPass"); // vytvoření aplikace
+            $key = Key::create($app, "Cool platba", 0.256, "Tohle je příkladová platba ;)", "http://example.org/done/?type=StandaCoin&"); // vytvoření platebního klíče
             $payurl = $app->PayUrl($key); // platební url pro přesměrování
             $QRUrl = $app->GetQR($key); // QR kód pro oskenování
             /***************************
