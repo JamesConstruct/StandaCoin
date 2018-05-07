@@ -56,12 +56,12 @@
     /*  example usage:
             require("framework.php");
 
-            $app = new App("a65ga65fh5rf5ga", "MyPass"); // vytvoření aplikace
-            $key = Key::create($app, "Cool platba", 0.256, "Tohle je příkladová platba ;)", "http://example.org/done/?type=StandaCoin&"); // vytvoření platebního klíče
+            $app = new App("a65ga65fh5rf5ga", "MyPass"); // vytvoření aplikace (API klíč, heslo)
+            $key = Key::create($app, "Cool platba", 0.256, "Tohle je příkladová platba ;)", "http://example.org/done/?type=StandaCoin&", "d5g4s3d5e4ga65d"); // vytvoření platebního klíče
             $payurl = $app->PayUrl($key); // platební url pro přesměrování
             $QRUrl = $app->GetQR($key); // QR kód pro oskenování
             /***************************
-            $payment = Payment::GetInfo($received_id); // získání informací o platbě
+            $payment = Payment::GetInfo($received_id); // získaní informací o platbě
             
             // více na http://standacoin.esy.es/StandaPay
     */
