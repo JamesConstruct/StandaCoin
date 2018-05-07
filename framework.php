@@ -23,19 +23,17 @@
             }
             return $payurl;
         }
-        public function pay($name, $amount) {
-            // WAIT FOR SSL
-        }
     }
     class Key {
-        public static function create($app, $name, $amount, $description, $redirect) {
+        public static function create($app, $name, $amount, $description, $redirect, $state) {
             $name = str_replace(" ", "%20", $name);
             $description = str_replace(" ", "%20", $description);
             $data = array(  "key"=>$app->key,
                             "name"=>$name,
                             "amount"=>$amount,
                             "description"=>$description,
-                            "url"=>$url
+                            "url"=>$url,
+                            "state"=>$state
                     );
             $url = "http://standacoin.esy.es/API/createkey";
             $ch = curl_init($url);
