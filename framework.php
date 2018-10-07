@@ -2,11 +2,13 @@
 
     /* This software is under GNU - General Public License v3.0 licenced to JamesConstruct (A.K.A DisShowák). More info https://github.com/JamesConstruct/StandaCoin/blob/master/LICENSE or http://standacoin.esy.es/StandaPay */
 
+
     class App {
-        public function __construct($id, $password, $paymenturl) {
-            $this->id = $id;
+        public function __construct($key, $password){
+            $this->key = $key;
             $this->pass = $password;
         }
+
         public function PayUrl($keyresponse) {
             if ($keyresponse["success"]) { // pokud bylo vytvoření klíče úspěšné
                 $payurl = "http://standacoin.esy.es/pay/" . $keyresponse["key"]; // vytvoření adresy pro platbu
@@ -15,6 +17,7 @@
             }
             return $payurl;
         }
+
         public function GetQR($keyresponse, $width = 150) {
             if ($keyresponse["success"]) { // pokud bylo vytvoření klíče úspěšné
                 $payurl = "http://standacoin.esy.es/API/QRPay/" . $keyresponse["key"] . "/&width=$width"; // vytvoření adresy pro platbu
@@ -23,7 +26,13 @@
             }
             return $payurl;
         }
+
+        public function pay($name, $amount) {
+            // WAIT FOR SSL
+        }
     }
+
+
     class Key {
         public static function create($app, $name, $amount, $description, $redirect, $state) {
             $name = str_replace(" ", "%20", $name);
